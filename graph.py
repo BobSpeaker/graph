@@ -79,15 +79,16 @@ def drawNodeGraphTurtle(g):
     print ("Initialization done.")
     
 def drawNodeGraph(g):
-    nx.draw_networkx_nodes(g,g,nodelist=g.keys(),
-                      node_size=80,
-                      node_color=(list(g.values())),
-                      cmap=plt.cm.Reds_r)
-    plt.xlim(-0.05,1.05)
-    plt.ylim(-0.05,1.05)
-    plt.axis('off')
-    plt.savefig('random_geometric_graph.png')
-    plt.show()    
+    'Draws a graph.'
+#    nx.draw_networkx_nodes(g,g,nodelist=g.keys(),
+#                      node_size=80,
+#                      node_color=(list(g.values())),
+#                      cmap=plt.cm.Reds_r)
+#    plt.xlim(-0.05,1.05)
+#    plt.ylim(-0.05,1.05)
+#    plt.axis('off')
+#    plt.savefig('random_geometric_graph.png')
+#    plt.show()    
 
 def graphFromDB(c, g):
 
