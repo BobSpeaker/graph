@@ -83,6 +83,7 @@ class NRGui():
         #It will then intern call the correct functions.
 
         #If the user clicks the background, then create a new node on that spot.
+        self.new_node(x, y)
 
         #If the user right clicks a node, then open context.
 
