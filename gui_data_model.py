@@ -18,7 +18,13 @@ class gui_dm():
         return(None)
     
     def add_node(self, x, y, node_id):
+        #Adds a node to the memory_model and occupies the foot print.
         print(x)
         print(y)
+        
         self.data_model[int(x)][int(y)] = gui_item(x,y, node_id)
         return()
+
+    def is_occupied(self, x, y):
+        #If x, y is occupied by a gui item, then return a reference to the item.
+        return(self.data_model[int(x)][int(y)])
