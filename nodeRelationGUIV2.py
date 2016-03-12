@@ -15,8 +15,8 @@ class NRGui():
         self._my_turtle = inTurtle
         self._my_turtle_screen = TurtleScreen
         #Bind events.
-        self._my_turtle_screen.onclick(self.recieve_click)  #Left
-        self._my_turtle_screen.onclick(self.recieve_click)  #Right
+        self._my_turtle_screen.onclick(self.recieve_click_left,1)  #Left
+        self._my_turtle_screen.onclick(self.recieve_click_right,2)  #Right
         self._my_turtle.onclick(self.new_node)
         self._my_turtle.pu()
         
@@ -78,19 +78,36 @@ class NRGui():
         #Move node to a new location on UI. Subsequently move connected edges.
         return()
 
-    def recieve_click(self, x, y):
-        #When the user clicks the interface, call this function.
+    def recieve_click_left(self, x, y):
+        #When the user left clicks the interface, call this function.
         #It will then intern call the correct functions.
 
         #If the user clicks the background, then create a new node on that spot.
         self.new_node(x, y)
 
-        #If the user right clicks a node, then open context.
-
         #If the user clicks a node, then (?) create a relation?
+        return()
 
+    def recieve_click_right(self, x, y):
         
+        #If the user right clicks a node, then open context.
+        occupant = self._gui_dm.is_occupied(x, y)
+        print (str(occupant.node_id))
+        if occupant != 0:
+            self._my_turtle.pd()
+            self._my_turtle.write("free space - make some nodes")
+            print("free space")
+            self._my_turtle.pu()  
+        else:
+            self._my_turtle.pd()
+            self._my_turtle.write("this space is taken by:" + str(occupant.node_id))
+            print("taken: " + str(occupant.node_id))
+            self._my_turtle.pu()
+        #Make a look up and see if there is a gui item on this location.
+        txt = self._my_turtle.textinput("Context command", "command:")
         
+
+        #Let user choose context item.
         return()
 
     def write(self, arg):
